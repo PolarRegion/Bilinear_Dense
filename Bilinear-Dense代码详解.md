@@ -458,7 +458,7 @@ class Trainer:
 ​	其次设置了`train()`函数，包含了更新学习率、提前停止等模块的函数
 
 ```python
-    def train(self, num_epochs, model_path):
+def train(self, num_epochs, model_path):
         start = time.time()  # 记录开始时间
         model_path = model_path + '/best.pt'  # 最佳模型路径
         for epoch in range(num_epochs):  # 遍历每个 epoch
@@ -519,7 +519,7 @@ class Trainer:
 ​	`test()`主要用于训练过程中的测试，从而查看训练是否存在过拟合，并通过输出进行实时调整。
 
 ```python
-    def test(self):
+def test(self):
         self.model.eval()  # 将模型设置为评估模式
         running_loss = 0.0  # 初始化损失值
         correct = 0  # 初始化正确预测的数量
@@ -550,7 +550,7 @@ class Trainer:
 ​	`test_confusion()`主要用于训练完成后，对测试及进行测试返回模型的效果参数，并输出混淆矩阵。
 
 ```python
-    def test_confusion(self, path, initial_checkpoint):
+def test_confusion(self, path, initial_checkpoint):
         # 加载模型的参数
         f = torch.load(initial_checkpoint)
         self.model.load_state_dict(f)
